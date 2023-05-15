@@ -1,6 +1,6 @@
 public class MonthInfo {
     String title;
-    public boolean isExpense;
+    boolean isExpense;
     int quantity;
     int unitPrice;
 
