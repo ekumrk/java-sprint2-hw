@@ -69,7 +69,6 @@ public class YearReport {
         return average;
     }
 
-
 }
 
 

@@ -31,26 +31,29 @@ public class MonthReport {
    }
 
    public void monthFullStatistics() {
-       HashMap<String, Integer> profits = new HashMap<>();
-       HashMap<String, Integer> expensies = new HashMap<>();
 
         for (Integer month : monthsData.keySet()) {
            System.out.println("Месяц № " + month);
            ArrayList<MonthInfo> lines = monthsData.get(month);
 
             for (MonthInfo stat : lines) {
+                HashMap<String, Integer> profits = new HashMap<>();
+                HashMap<String, Integer> expensies = new HashMap<>();
                 if (!stat.isExpense) {
                     profits.put(stat.title, (stat.quantity * stat.unitPrice));
                 } else {
                     expensies.put(stat.title, (stat.quantity * stat.unitPrice));
                 }
-
+                System.out.println("Доходы месяца: "+ profits);
+                System.out.println("Расходы месяца: "+  expensies);
             }
-            findMost(profits);
-            findMost(expensies);
+
+            //System.out.println("Самый прибыльный товар месяца: " + findMost(profits) + " .");
+            //System.out.println("Самая большая трата месяца: " + findMost(expensies) + " .");
        }
    }
-   public void findMost(HashMap<String, Integer> x) {
+   public HashMap<String, Integer> findMost(HashMap<String, Integer> x) {
+       HashMap<String, Integer> hash = new HashMap<>();
         String maxTitle = "";
         int amount = 0;
         int maxAmount = 0;
@@ -59,8 +62,10 @@ public class MonthReport {
             if (amount > maxAmount) {
                 maxAmount = amount;
                 maxTitle = title;
+                hash.put(maxTitle, maxAmount);
             }
         }
+        return hash;
    }
 
 }
