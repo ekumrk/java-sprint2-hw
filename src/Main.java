@@ -36,7 +36,6 @@ public class Main {
                     } else {
                         System.out.println("Вы еще не подгрузили месячные отчёты, пожалуйста выберите команду 1, чтобы сделать это.");
                     }
-
                 } else if (command == 5) {
                     if (yearOpened) {
                         yearReport.yearFullStatistics();
